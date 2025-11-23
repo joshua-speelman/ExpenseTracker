@@ -9,6 +9,10 @@ public class Main {
 
         boolean appIsRunning = true;
 
+        // kicking off the expense tracker
+        ExpenseTracker tracker = new ExpenseTracker();
+
+
         while (appIsRunning) {
             // menu design
             System.out.println("== Expense Tracker ==");
@@ -16,9 +20,6 @@ public class Main {
             System.out.println("2. Show all expenses");
             System.out.println("0. Exit");
             System.out.print("Enter your choice: ");
-
-            // kicking off the expensetracker object (which contains expenses)
-            ExpenseTracker tracker = new ExpenseTracker();
 
             // waiting for user input
             Scanner scanner = new Scanner(System.in);
