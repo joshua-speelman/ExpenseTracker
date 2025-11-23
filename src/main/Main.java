@@ -1,9 +1,13 @@
+package main;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.print("Expense Tracker is booting, please hold ...\n");
+        System.out.print("main.Expense Tracker is booting, please hold ...\n");
         System.out.print("===============================================\n\n");
+
+        ExpenseTracker tracker = new ExpenseTracker();
 
         Scanner scanner = new Scanner(System.in);
 
@@ -25,7 +29,7 @@ public class Main {
             }
         }
 
-        Expense expense = new Expense("General", description, price);
-        System.out.print("You entered: " + expense);
+        tracker.addExpense(description, price);
+        tracker.showExpenses();
     }
 }

@@ -1,18 +1,18 @@
+package main;
+
 public class Expense {
 
-    private String choice;
     private final String description;
     private final int price;
 
-    public Expense(String choice, String description, int price) {
-        this.choice = choice;
+    public Expense(String description, int price) {
         this.description = description;
         this.price = price;
     }
     // need to add some behaviours
     @Override
     public String toString() {
-        return "Expense: " + description + " - ($" + price + ")";
+        return "main.Expense: " + description + " - ($" + price + ")";
     }
 
 }
