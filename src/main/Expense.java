@@ -12,7 +12,7 @@ public class Expense {
     // need to add some behaviours
     @Override
     public String toString() {
-        return "main.Expense: " + description + " - ($" + price + ")";
+        return "Expense: " + description + " - ($" + price + ")";
     }
 
 }

@@ -1,11 +1,12 @@
 package main;
 
 import java.util.Scanner;
+import static java.lang.System.out;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.print("main.Expense Tracker is booting, please hold ...\n");
-        System.out.print("===============================================\n\n");
+        out.print("Expense Tracker is booting, please hold ...\n");
+        out.print("===============================================\n\n");
 
         boolean appIsRunning = true;
 
@@ -18,7 +19,7 @@ public class Main {
             System.out.println("== Expense Tracker ==");
             System.out.println("1. Add new expense");
             System.out.println("2. Show all expenses");
-            System.out.println("0. Exit");
+            System.out.println("3. Exit");
             System.out.print("Enter your choice: ");
 
             // waiting for user input
@@ -54,7 +55,7 @@ public class Main {
                     // show all expenses
                     tracker.showExpenses();
                     break;
-                case 0:
+                case 3:
                     // exit
                     appIsRunning = false;
                     System.out.println("Exiting...");
