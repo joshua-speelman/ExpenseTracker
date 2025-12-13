@@ -19,7 +19,9 @@ public class Main {
             System.out.println("== Expense Tracker ==");
             System.out.println("1. Add new expense");
             System.out.println("2. Show all expenses");
-            System.out.println("3. Exit");
+            //System.out.println("3. Delete expense");
+            System.out.println("3. Show total");
+            System.out.println("5. Exit");
             System.out.print("Enter your choice: ");
 
             // waiting for user input
@@ -56,6 +58,14 @@ public class Main {
                     tracker.showExpenses();
                     break;
                 case 3:
+                    if (tracker.isEmpty()) {
+                        System.out.println("No expenses recorded yet!");
+                    } else {
+                        int total = tracker.getTotal();
+                        System.out.println("Total: $" + total);
+                    }
+                    break;
+                case 4:
                     // exit
                     appIsRunning = false;
                     System.out.println("Exiting...");

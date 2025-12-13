@@ -11,6 +11,10 @@ public class ExpenseTracker {
 
     private final ArrayList<Expense> listOfExpenses = new ArrayList<>();
 
+    public boolean isEmpty() {
+        return listOfExpenses.isEmpty();
+    }
+
     // can i add duplicate expenses? if it's the same name, should it just add to the total, or a counter next to the name?
     public void addExpense(String description, int price) {
         Expense expense = new Expense(description, price);
@@ -39,16 +43,11 @@ public class ExpenseTracker {
 //    it's just aggregating numeric data from the collection really
 //    think SQL (SELECT SUM(price))
 
-//    public int getTotal() {
-//        if (listOfExpenses.isEmpty()) {
-//            System.out.println("No expenses to total.");
-//            return 0;
-//        }
-//
-//        int total = 0;
-//        for (Expense e : listOfExpenses) {
-//            total += e.getPrice();
-//        }
-//        return total;
-//    }
+    public int getTotal() {
+        int total = 0;
+        for (Expense e : listOfExpenses) {
+            total += e.getPrice();
+        }
+        return total;
+    }
 }
