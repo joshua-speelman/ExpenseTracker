@@ -2,6 +2,8 @@ package main;
 
 import java.util.ArrayList;
 
+// expensetracker class holds the expenses stored in memory
+
 public class ExpenseTracker {
 
     // addExpense(description, price) - done
@@ -15,10 +17,24 @@ public class ExpenseTracker {
         return listOfExpenses.isEmpty();
     }
 
-    // can i add duplicate expenses? if it's the same name, should it just add to the total, or a counter next to the name?
+    // can I add duplicate expenses? if it's the same name, should it just add to the total, or a counter next to the name?
     public void addExpense(String description, int price) {
         Expense expense = new Expense(description, price);
         listOfExpenses.add(expense);
+    }
+
+    public void removeExpense(int index) {
+        if (listOfExpenses.isEmpty()) {
+            System.out.println("No expenses to delete!");
+            return;
+        }
+        if (index < 1 || index > listOfExpenses.size()) {
+            System.out.println("No expenses to delete!");
+            return;
+        }
+        Expense removedExpense = listOfExpenses.get(index - 1);
+        listOfExpenses.remove(index - 1);
+        System.out.println("Removed: " + removedExpense);
     }
 
     // what happens if there's no expenses?

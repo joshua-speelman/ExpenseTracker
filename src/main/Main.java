@@ -3,6 +3,8 @@ package main;
 import java.util.Scanner;
 import static java.lang.System.out;
 
+// main knows about the user and their inputs. handles i/o. knows what's inside the list of expenses
+
 public class Main {
     public static void main(String[] args) {
         out.print("Expense Tracker is booting, please hold ...\n");
@@ -19,8 +21,8 @@ public class Main {
             System.out.println("== Expense Tracker ==");
             System.out.println("1. Add new expense");
             System.out.println("2. Show all expenses");
-            //System.out.println("3. Delete expense");
-            System.out.println("3. Show total");
+            System.out.println("3. Remove expense");
+            System.out.println("4. Show total");
             System.out.println("5. Exit");
             System.out.print("Enter your choice: ");
 
@@ -59,13 +61,20 @@ public class Main {
                     break;
                 case 3:
                     if (tracker.isEmpty()) {
+                        System.out.println("There are no expenses to remove!");
+                    } else {
+                        int index = scanner.nextInt();
+                        tracker.removeExpense(index);
+                    }
+                case 4:
+                    if (tracker.isEmpty()) {
                         System.out.println("No expenses recorded yet!");
                     } else {
                         int total = tracker.getTotal();
                         System.out.println("Total: $" + total);
                     }
                     break;
-                case 4:
+                case 5:
                     // exit
                     appIsRunning = false;
                     System.out.println("Exiting...");
