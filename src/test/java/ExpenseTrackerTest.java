@@ -35,8 +35,18 @@ public class ExpenseTrackerTest {
     void trackerShouldNotBeEmptyAfterRemovingNonExistingExpense() {
         ExpenseTracker tracker = new ExpenseTracker();
         tracker.addExpense("coffee", 5);
-        tracker.removeExpense(1);
-        assertFalse(tracker.isEmpty(), "Tracker should be empty after removing an expense");
+        tracker.removeExpense(2);  // 2 doesn't exist
+        assertFalse(tracker.isEmpty(),
+                "Tracker should still contain its expense when removing non‑existing index");
+    }
+
+    @Test
+    void trackerShouldBeEmptyAfterRemovingExistingExpense() {
+        ExpenseTracker tracker = new ExpenseTracker();
+        tracker.addExpense("coffee", 5);
+        tracker.removeExpense(1); // valid index
+        assertTrue(tracker.isEmpty(),
+                "Tracker should be empty after removing the only expense");
     }
 
     @Test
