@@ -7,10 +7,8 @@ public class ExpenseTrackerTest {
     void newTrackerShouldBeEmpty() {
         // Arrange
         ExpenseTracker tracker = new ExpenseTracker();
-
         // Act
         boolean result = tracker.isEmpty();
-
         // Assert
         assertTrue(result, "A new tracker should start empty");
     }
@@ -19,10 +17,8 @@ public class ExpenseTrackerTest {
     void trackerShouldNotBeEmptyAfterAddingExpense() {
         // Arrange
         ExpenseTracker tracker = new ExpenseTracker();
-
         // Act
         tracker.addExpense("coffee", 5);
-
         // Assert
         assertFalse(tracker.isEmpty(), "Tracker should not be empty after adding an expense");
     }
@@ -30,22 +26,16 @@ public class ExpenseTrackerTest {
     @Test
     void trackerShouldBeEmptyAfterRemovingExpense() {
         ExpenseTracker tracker = new ExpenseTracker();
-
         tracker.addExpense("coffee", 5);
-
         tracker.removeExpense(1);
-
         assertTrue(tracker.isEmpty(), "Tracker should be empty after removing an expense");
     }
 
     @Test
     void trackerShouldNotBeEmptyAfterRemovingNonExistingExpense() {
         ExpenseTracker tracker = new ExpenseTracker();
-
         tracker.addExpense("coffee", 5);
-
         tracker.removeExpense(1);
-
         assertFalse(tracker.isEmpty(), "Tracker should be empty after removing an expense");
     }
 
@@ -63,5 +53,13 @@ public class ExpenseTrackerTest {
         assertEquals(5, expenses.get(0).getPrice());
         assertEquals("coffee2", expenses.get(1).getDescription());
         assertEquals(10, expenses.get(1).getPrice());
+    }
+
+    @Test
+    void trackerShouldReturnEmptyListIfExpensesListIsEmpty() {
+        ExpenseTracker tracker = new ExpenseTracker();
+        List<Expense> expenses = tracker.getAllExpenses();
+        assertTrue(expenses.isEmpty(), "Expenses can't be retrieved if there's no expenses logged!");
+
     }
 }
